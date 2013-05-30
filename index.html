@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="Чтение аккордов с листа" />
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<script src="js/html5shiv.js"></script>
+<script src="js/jscript.js"></script>
+<title>Карточки</title>
+</head>
+
+<body>
+
+<div data-role="page">
+	<div data-role="panel" data-position="right" data-display="overlay" data-position-fixed="true" id="options-panel">
+		<div class="b-options-panel__item" id="no-transformations-option">
+			<a href="#" data-role="button" data-inline="true" data-mini="true" class="b-options-panel__button">Без обращений</a>
+			<a href="#no-transformations-option-info" data-role="button" data-icon="info" data-iconpos="notext" data-inline="true" data-rel="popup" data-transition="pop" title="Info"></a>
+			<div data-role="popup" id="no-transformations-option-info">
+				<p>Будут показаны только основные аккорды, без их обращений. Например, для G-dur будут показываться только трезвучия (соль-си-ре) в разных октавах.</p>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="header" data-position="fixed">
+		<h1>Карточки</h1>
+		<a href="#options-panel" data-role="button" data-icon="gear" class="ui-btn-right">Опции</a>
+	</div>
+	<div data-role="content">
+		<div id="pack"></div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" id="next-button">Дальше</a></li>
+				<li><a href="#" id="shuffle-button">Перемешать</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+/*card*/
+.b-card {
+	display: none;
+}
+.b-card.i-current {
+	display: block;
+}
+.b-card__translation {
+	display: none;
+}
+/*_card_*/
