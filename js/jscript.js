@@ -59,12 +59,18 @@ function Pack(elem) {
 	}
 	
 	function handleEvents() {
-		self.$elem.delegate(".b-card", "click", clickCard);
+		self.$elem
+			.delegate(".b-card", "click", clickCard)
+			.delegate(".b-card", "swipeleft", swipeleftCard);
 		self.$nextButton.click(clickNextButton);
 		self.$shuffleButton.click(clickShuffleButton);
 
 		function clickCard() {
 			$(this).find(".b-card__translation").slideDown();
+		}
+
+		function swipeleftCard() {
+			clickNextButton();
 		}
 
 		function clickNextButton() {
@@ -90,38 +96,3 @@ function Pack(elem) {
 		}
 	}
 }
-
-var vocabulary = {
-	"italian": {
-		"lesson1": [
-			{
-				"item": "Ciao!",
-				"translation": "привет, пока"
-			},
-			{
-				"item": "Come stai?",
-				"translation": "Как дела?"
-			},
-			{
-				"item": "Buongiorno!",
-				"translation": "Доброе утро!"
-			},
-			{
-				"item": "Buona sera!",
-				"translation": "Добрый вечер!"
-			},
-			{
-				"item": "Come ti chiami?",
-				"translation": "Как тебя зовут?"
-			},
-			{
-				"item": "Il mio nome è ...",
-				"translation": "Меня зовут…"
-			},
-			{
-				"item": "Di dove sei?",
-				"translation": "Откуда ты?"
-			}
-		]
-	}
-};

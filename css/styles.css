@@ -1,11 +1,60 @@
 /*card*/
+body {
+}
 .b-card {
 	display: none;
+	width: 500px;
+	margin: 0 auto;
+	height: 250px;
+	background: #fff;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+	-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+	-khtml-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+	padding: 20px 40px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 30pt;
 }
 .b-card.i-current {
 	display: block;
 }
 .b-card__translation {
 	display: none;
+	font-weight: normal;
+	font-size: 20pt;
 }
 /*_card_*/
+
+@media screen and (max-width: 960px) {}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 320px) {
+	/*card*/
+	body {
+	}
+	.b-card {
+		display: none;
+		width: 200px;
+		margin: 0 auto;
+		height: 150px;
+		background: #fff;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+		-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+		-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+		-khtml-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+		padding: 2em 4em;
+		font-family: Georgia, "Times New Roman", Times, serif;
+		font-weight: bold;
+		font-style: italic;
+		font-size: 20px;
+	}
+	.b-card.i-current {
+		display: block;
+	}
+	.b-card__translation {
+		display: none;
+		font-weight: normal;
+	}
+	/*_card_*/
+}
