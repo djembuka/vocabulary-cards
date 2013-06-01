@@ -1,6 +1,56 @@
 $(function() {
 	new Pack(document.getElementById("pack"));
+	new OptionsPanel(document.getElementById("options-panel"));
 });
+
+function OptionsPanel(elem) {
+	var self = this;
+	
+	init();
+	
+	function init() {
+		initVarsAndElems();
+		makeHtml();
+		handleEvents();
+	}
+	
+	function initVarsAndElems() {
+		self.$elem = $(elem);
+		self.$elem.data("OptionsPanel", self);
+	}
+
+	function makeHtml() {
+		if(!window.vocabulary) return;
+		self.$elem.append(getVocabularyLists(vocabulary));
+	}
+
+	function handleEvents() {
+		self.$elem.delegate("li", "click", clickItem);
+
+		function clickItem() {
+			$(this).toggleClass("i-checked");
+			$("#pack").data("Pack")._resetGroupArray();
+		}
+	}
+
+	function getVocabularyLists(json) {
+		var html = "";
+		if(typeof json == "object" && !json.item) {
+			html += '<ul>';
+			for(var key in json) {
+				html += '<li>' + key;
+				if(typeof json[key] == "object" && !json[key][0]) {
+					html += getVocabularyLists(json[key]);
+				}
+				html += '</li>';
+			}
+			html += '</ul>';
+		}
+
+		return html;
+	}
+
+}
 
 function Pack(elem) {
 	var self = this;
@@ -15,7 +65,7 @@ function Pack(elem) {
 	
 	function initVarsAndElems() {
 		self.$elem = $(elem);
-		self.$elem.data("object", self);
+		self.$elem.data("Pack", self);
 		self.$nextButton = $("#next-button");
 		self.$shuffleButton = $("#shuffle-button");
 		self.group = [];
@@ -94,5 +144,16 @@ function Pack(elem) {
 			makeCards();
 			showFirstCard();
 		}
+	}
+
+	/*-- public methods --*/
+
+	this._resetGroupArray() {
+		$("#options-panel .i-checked").each(function() {
+			var key = $(this).attr("data-key");
+			if(key) {
+				self.group = self.group.concat(vocabulary[$(this).attr("data-key")]);
+			}
+		});
 	}
 }

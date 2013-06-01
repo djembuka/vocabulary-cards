@@ -48,9 +48,9 @@ var vocabulary = {
 			{
 				"item": "Arrivederci! A presto!",
 				"translation": "До свидания! До скорой встречи!"
-			},
-
-
+			}
+		],
+		"lesson2": [
 			{
 				"item": "Come stai?",
 				"translation": "Как поживаешь?"
@@ -226,9 +226,9 @@ var vocabulary = {
 			{
 				"item": "Che peccato.",
 				"translation": "Жаль."
-			},
-
-
+			}
+		],
+		"lesson3": [
 			{
 				"item": "l'uomo",
 				"translation": "мужчина"
