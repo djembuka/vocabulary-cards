@@ -226,6 +226,100 @@ var vocabulary = {
 			{
 				"item": "Che peccato.",
 				"translation": "Жаль."
+			},
+
+
+			{
+				"item": "l'uomo",
+				"translation": "мужчина"
+			},
+			{
+				"item": "Io sono un uomo.",
+				"translation": "Я мужчина."
+			},
+			{
+				"item": "Io non sono un uomo.",
+				"translation": "Я не мужчина."
+			},
+			{
+				"item": "la donna",
+				"translation": "Я женщина."
+			},
+			{
+				"item": "Io non sono una donna.",
+				"translation": "Я не женщина."
+			},
+			{
+				"item": "il ragazzo",
+				"translation": "мальчик/парень"
+			},
+			{
+				"item": "Io sono un ragazzo.",
+				"translation": "Я мальчик."
+			},
+			{
+				"item": "Io non sono un ragazzo.",
+				"translation": "Я не мальчик."
+			},
+			{
+				"item": "la ragazza",
+				"translation": "девочка/девушка"
+			},
+			{
+				"item": "Io sono una ragazza.",
+				"translation": "Я девушка."
+			},
+			{
+				"item": "Io non sono una ragazza.",
+				"translation": "Я не девушка."
+			},
+			{
+				"item": "giovane",
+				"translation": "молодой/молодая"
+			},
+			{
+				"item": "Io sono giovane.",
+				"translation": "Я молода."
+			},
+			{
+				"item": "Io non sono giovane.",
+				"translation": "Я не молода."
+			},
+			{
+				"item": "anziano/anziana",
+				"translation": "пожилой/пожилая"
+			},
+			{
+				"item": "Io sono anziana",
+				"translation": "Я пожилая."
+			},
+			{
+				"item": "Io non sono anziana.",
+				"translation": "Я не пожилая."
+			},
+			{
+				"item": "single",
+				"translation": "одинокий/одинокая"
+			},
+			{
+				"item": "Io sono single.",
+				"translation": "Я одинокий/Я одинокая"
+			},
+			{
+				"item": "Io non sono single.",
+				"translation": "Я не одинокий/Я не одинокая."
+			},
+			{
+				"item": "sposato/sposata",
+				"translation": "женат/замужем"
+			},
+			{
+				"item": "Io sono sposata.",
+				"translation": "Я замужем."
+			},
+			{
+				"item": "Io non sono sposata.",
+				"translation": "Я не замужем."
 			}
 		]
 	}
