@@ -1,9 +1,9 @@
 $(function() {
 	new Pack(document.getElementById("pack"));
-	new OptionsPanel(document.getElementById("options-panel"));
+	new SettingsPanel(document.getElementById("settings-panel"));
 });
 
-function OptionsPanel(elem) {
+function SettingsPanel(elem) {
 	var self = this;
 	
 	init();
@@ -27,18 +27,19 @@ function OptionsPanel(elem) {
 	function handleEvents() {
 		self.$elem.delegate("li", "click", clickItem);
 
-		function clickItem() {
+		function clickItem(e) {
 			$(this).toggleClass("i-checked");
 			$("#pack").data("Pack")._resetGroupArray();
+			e.stopPropagation();
 		}
 	}
 
 	function getVocabularyLists(json) {
 		var html = "";
 		if(typeof json == "object" && !json.item) {
-			html += '<ul>';
+			html += '<ul class="b-settings__checkbox-list">';
 			for(var key in json) {
-				html += '<li>' + key;
+				html += '<li class="b-settings__checkbox-list__item" data-key="' + key + '">' + key;
 				if(typeof json[key] == "object" && !json[key][0]) {
 					html += getVocabularyLists(json[key]);
 				}
@@ -130,7 +131,13 @@ function Pack(elem) {
 		}
 
 		function hideCurrentCard() {
-			self.$current.removeClass("i-current");
+			//self.$current.removeClass("i-current");
+			var $card = self.$current;
+			$card.animate({marginLeft: -750}, function() {console.log("");
+				$card.animate({marginLeft: 0, opacity: 0.5});
+			}, function() {
+				$card.removeClass("i-current");
+			});
 		}
 
 		function showNextCard() {
@@ -148,12 +155,13 @@ function Pack(elem) {
 
 	/*-- public methods --*/
 
-	this._resetGroupArray() {
-		$("#options-panel .i-checked").each(function() {
+	this._resetGroupArray = function() {
+		self.group = [];
+		$("#settings-panel .i-checked").each(function() {
 			var key = $(this).attr("data-key");
 			if(key) {
 				self.group = self.group.concat(vocabulary[$(this).attr("data-key")]);
 			}
 		});
-	}
+	};
 }

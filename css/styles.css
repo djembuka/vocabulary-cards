@@ -1,21 +1,32 @@
 /*card*/
 body {
 }
+#pack {
+	position: relative;
+	height: 300px;
+}
 .b-card {
+	position: absolute;
+	top: 0;
+	left: 50%;
 	display: none;
+	margin: 0 0 0 -250px;
 	width: 500px;
-	margin: 0 auto;
 	height: 250px;
 	background: #fff;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-	-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-	-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-	-khtml-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+	box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
+	-webkit-box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
+	-moz-box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
+	-khtml-box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
 	padding: 20px 40px;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-weight: bold;
 	font-style: italic;
 	font-size: 30pt;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
 }
 .b-card.i-current {
 	display: block;
@@ -24,6 +35,12 @@ body {
 	display: none;
 	font-weight: normal;
 	font-size: 20pt;
+}
+
+.b-settings__checkbox-list {}
+.b-settings__checkbox-list__item {}
+.b-settings__checkbox-list__item.i-checked {
+	color: #999;
 }
 /*_card_*/
 
