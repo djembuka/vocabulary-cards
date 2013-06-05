@@ -17,6 +17,7 @@ function SettingsPanel(elem) {
 	function initVarsAndElems() {
 		self.$elem = $(elem);
 		self.$elem.data("OptionsPanel", self);
+		//self.$translation = self.$elem.find(".")
 	}
 
 	function makeHtml() {
@@ -28,7 +29,8 @@ function SettingsPanel(elem) {
 		self.$elem.delegate("li", "click", clickItem);
 
 		function clickItem(e) {
-			$(this).toggleClass("i-checked");
+			self.$elem.find("li").removeClass("i-checked");
+			$(this).addClass("i-checked");
 			$("#pack").data("Pack")._resetGroupArray();
 			e.stopPropagation();
 		}
@@ -75,14 +77,20 @@ function Pack(elem) {
 	}
 
 	function makeHtml() {
-		self.group = vocabulary.italian.lesson1;
+		self.group = vocabulary.italiano;
 		self.group = shuffleGroup();
 		makeCards();
 		showFirstCard();
 	}
 
 	function shuffleGroup(groupArray) {
-		var group = groupArray || self.group;
+		var array = groupArray || self.group;
+		var group = [];
+
+		for(var i = 0; i < array.length; i++) {
+			group[i] = array[i];
+		}
+
 		var result = [];
 		var length = group.length;
 		for(var i = 0; i < length; i++) {
@@ -145,23 +153,26 @@ function Pack(elem) {
 			self.$current.addClass("i-current");
 			if(!self.$current || !self.$current.is("div")) clickShuffleButton();
 		}
+	}
 
-		function clickShuffleButton() {
-			self.group = shuffleGroup();
-			makeCards();
-			showFirstCard();
+	function clickShuffleButton() {
+		self.group = shuffleGroup();
+		makeCards();
+		showFirstCard();
+	}
+
+	function resetGroupArray() {
+		self.group = [];
+		var key = $("#settings-panel .i-checked").attr("data-key");
+		if(key) {
+			self.group = vocabulary[key];
 		}
+		clickShuffleButton();
 	}
 
 	/*-- public methods --*/
 
 	this._resetGroupArray = function() {
-		self.group = [];
-		$("#settings-panel .i-checked").each(function() {
-			var key = $(this).attr("data-key");
-			if(key) {
-				self.group = self.group.concat(vocabulary[$(this).attr("data-key")]);
-			}
-		});
+		resetGroupArray();
 	};
 }
