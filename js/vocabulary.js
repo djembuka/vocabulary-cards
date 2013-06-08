@@ -440,31 +440,31 @@ var vocabulary = {
 		{
 			"item": "Percè no?",
 			"translation": "Почему бы и нет?"
-		}
+		},
 		{
 			"item": "Davvero?",
 			"translation": "Неужели?"
-		}
+		},
 		{
 			"item": "Come mai?",
 			"translation": "Как же так?"
-		}
+		},
 		{
 			"item": "Guarda!",
 			"translation": "Посмотри!"
-		}
+		},
 		{
 			"item": "Francamente non mi piace.",
 			"translation": "Честно говоря, мне не нравится."
-		}
+		},
 		{
 			"item": "Purtroppo...",
 			"translation": "К сожалению..."
-		}
+		},
 		{
 			"item": "Benissimo!",
 			"translation": "Прекрасно!"
-		}
+		},
 		{
 			"item": "Che bello!",
 			"translation": "Как красиво!"
