@@ -63,6 +63,13 @@ body {
 }
 /*_card_*/
 
+/*control group*/
+#top-control-group {
+	text-align: right;
+	margin-right: 20px;
+}
+/*_control group_*/
+
 @media screen and (max-width: 960px) {}
 @media screen and (max-width: 768px) {}
 @media screen and (max-width: 320px) {
