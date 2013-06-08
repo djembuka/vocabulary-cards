@@ -1,6 +1,6 @@
 $(function() {
-	new Pack(document.getElementById("pack"));
 	new SettingsPanel(document.getElementById("settings-panel"));
+	new Pack(document.getElementById("pack"));
 });
 
 function SettingsPanel(elem) {
@@ -16,8 +16,8 @@ function SettingsPanel(elem) {
 	
 	function initVarsAndElems() {
 		self.$elem = $(elem);
-		self.$elem.data("OptionsPanel", self);
-		//self.$translation = self.$elem.find(".")
+		self.$elem.data("SettingsPanel", self);
+		self.$translation = self.$elem.find("#translation");
 	}
 
 	function makeHtml() {
@@ -27,7 +27,12 @@ function SettingsPanel(elem) {
 
 	function handleEvents() {
 		self.$elem.delegate("li", "click", clickItem);
-
+		self.$translation.change(changeTranslation);
+		
+		function changeTranslation() {
+			$("#pack").data("Pack")._inverseLanguages();
+		}
+	
 		function clickItem(e) {
 			self.$elem.find("li").removeClass("i-checked");
 			$(this).addClass("i-checked");
@@ -72,7 +77,7 @@ function Pack(elem) {
 		self.$nextButton = $("#next-button");
 		self.$shuffleButton = $("#shuffle-button");
 		self.group = [];
-		self.cards = [];
+		self.$cards = [];
 		self.$current;
 	}
 
@@ -109,11 +114,14 @@ function Pack(elem) {
 			var $card = $('<div class="b-card"><div class="b-card__item">' + group[i].item + '</div><div class="b-card__translation">' + group[i].translation + '</div></div>');
 			self.$elem.append($card);
 		}
-		self.cards = self.$elem.find(".b-card");
+		self.$cards = self.$elem.find(".b-card");
+		if($("#settings-panel").data("SettingsPanel").$translation.val() == "from") {
+			inverseLanguages();
+		}
 	}
 
 	function showFirstCard() {
-		self.$current = $(self.cards[0]);
+		self.$current = $(self.$cards[0]);
 		self.$current.addClass("i-current");
 	}
 	
@@ -125,7 +133,7 @@ function Pack(elem) {
 		self.$shuffleButton.click(clickShuffleButton);
 
 		function clickCard() {
-			$(this).find(".b-card__translation").slideDown();
+			$(this).find("div:hidden").fadeIn();
 		}
 
 		function swipeleftCard() {
@@ -141,11 +149,12 @@ function Pack(elem) {
 		function hideCurrentCard() {
 			//self.$current.removeClass("i-current");
 			var $card = self.$current;
-			$card.animate({marginLeft: -750}, function() {console.log("");
-				$card.animate({marginLeft: 0, opacity: 0.5});
-			}, function() {
-				$card.removeClass("i-current");
-			});
+			$card
+				.addClass("i-animated")
+				.removeClass("i-current")
+				.animate({marginLeft: -450, opacity: 0.5}, 200, function() {
+					$card.removeClass("i-animated");
+				});
 		}
 
 		function showNextCard() {
@@ -169,10 +178,24 @@ function Pack(elem) {
 		}
 		clickShuffleButton();
 	}
+	
+	function inverseLanguages() {
+		self.$cards.each(function() {
+			var $this = $(this);
+			var $div0 = $this.find("div:eq(0)");
+			var $div1 = $this.find("div:eq(1)");
+			$this.toggleClass("i-inverse");
+			$div0.before($div1);
+		});
+	}
 
 	/*-- public methods --*/
 
 	this._resetGroupArray = function() {
 		resetGroupArray();
+	};
+	
+	this._inverseLanguages = function() {
+		inverseLanguages();
 	};
 }

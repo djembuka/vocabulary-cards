@@ -19,10 +19,6 @@ body {
 	-moz-box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
 	-khtml-box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
 	padding: 20px 40px;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-weight: bold;
-	font-style: italic;
-	font-size: 30pt;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-khtml-border-radius: 10px;
@@ -30,8 +26,31 @@ body {
 }
 .b-card.i-current {
 	display: block;
+	z-index: 1;
+}
+.b-card.i-animated {
+	display: block;
+	z-index: 2;
+}
+.b-card__item {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 30pt;
 }
 .b-card__translation {
+	display: none;
+	font-weight: normal;
+	font-size: 20pt;
+}
+.b-card.i-inverse .b-card__translation {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 30pt;
+	display: block;
+}
+.b-card.i-inverse .b-card__item {
 	display: none;
 	font-weight: normal;
 	font-size: 20pt;
