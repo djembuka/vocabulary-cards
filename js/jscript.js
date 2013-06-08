@@ -147,8 +147,8 @@ function Pack(elem) {
 		}
 
 		function hideCurrentCard() {
-			/*self.$current.removeClass("i-current");
-			var $card = self.$current;
+			self.$current.removeClass("i-current");
+			/*var $card = self.$current;
 			$card
 				.addClass("i-animated")
 				.removeClass("i-current")

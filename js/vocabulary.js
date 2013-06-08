@@ -331,7 +331,7 @@ var vocabulary = {
 		},
 		{
 			"item": "A domani!",
-			"translation": "Ло завтра!"
+			"translation": "До завтра!"
 		},
 		{
 			"item": "Buon viaggio!",
