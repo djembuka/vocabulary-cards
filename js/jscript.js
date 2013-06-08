@@ -133,7 +133,7 @@ function Pack(elem) {
 		self.$shuffleButton.click(clickShuffleButton);
 
 		function clickCard() {
-			$(this).find("div:hidden").fadeIn();
+			$(this).find("div:hidden").show();
 		}
 
 		function swipeleftCard() {
@@ -147,14 +147,14 @@ function Pack(elem) {
 		}
 
 		function hideCurrentCard() {
-			//self.$current.removeClass("i-current");
+			/*self.$current.removeClass("i-current");
 			var $card = self.$current;
 			$card
 				.addClass("i-animated")
 				.removeClass("i-current")
 				.animate({marginLeft: -450, opacity: 0.5}, 200, function() {
 					$card.removeClass("i-animated");
-				});
+				});*/
 		}
 
 		function showNextCard() {
